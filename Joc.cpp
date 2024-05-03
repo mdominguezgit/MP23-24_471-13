@@ -10,7 +10,7 @@ void Joc::inicialitza(const string& nomFitxer) //Inicialitza el joc llegint la c
 	{
 		int tipus, fila, columna, gir;
 		fitxer >> tipus >> fila >> columna >> gir;
-		m_figuraActual.inicialitza(TipusFigura(tipus), fila, columna);
+		m_figuraActual.inicialitza(TipusFigura(tipus), fila, columna - 1);
 		for (int i = 0; i < gir; i++)
 			m_figuraActual.gira(GIR_HORARI);
 
