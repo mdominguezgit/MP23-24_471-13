@@ -1,13 +1,13 @@
 #include "Figura.h"
 
-void::Figura::resetForma()
+void::Figura::resetForma() //Buida la matriu i posa tots els elements a 0
 {
 	for (int i = 0; i < m_alcada; i++)
 		for (int j = 0; j < m_amplada; j++)
 			m_mascara[i][j] = 0;
 }
 
-void Figura::inicialitzaForma(TipusFigura tipus)
+void Figura::inicialitzaForma(TipusFigura tipus) //Inicialitza la forma de la figura i especifica els paràmetres
 {
 	switch (tipus)
 	{
@@ -83,7 +83,7 @@ void Figura::inicialitzaForma(TipusFigura tipus)
 	}
 }
 
-void Figura::inicialitza(TipusFigura tipus, int fila, int columna)
+void Figura::inicialitza(TipusFigura tipus, int fila, int columna) //Inicialitza el tipus de figura especificat a la posició donada
 {
 	m_tipus = tipus;
 	m_fila = fila;
@@ -92,29 +92,29 @@ void Figura::inicialitza(TipusFigura tipus, int fila, int columna)
 	inicialitzaForma(tipus);
 }
 
-void Figura::getMascara(int mascara[MAX_ALCADA][MAX_AMPLADA]) const
+void Figura::getMascara(int mascara[MAX_ALCADA][MAX_AMPLADA]) const //Copia la màscara de la figura a una matriu donada com a paràmetre
 {
 	for (int i = 0; i < m_alcada; i++)
 		for (int j = 0; j < m_amplada; j++)
 			mascara[i][j] = m_mascara[i][j];
 }
 
-void Figura::mou(int dirX)
+void Figura::mou(int dirX) //Mou horitzontalment la figura canviant la columna
 {
 	m_columna += dirX;
 }
 
-void Figura::baixa()
+void Figura::baixa() //Mou cap avall, incrementant la fila
 {
 	m_fila += 1;
 }
 
-void Figura::puja()
+void Figura::puja() //Mou cap amunt, disminuint la fila
 {
 	m_fila -= 1;
 }
 
-void Figura::gira(DireccioGir direccio)
+void Figura::gira(DireccioGir direccio) //Gira en la direcció especificada, canviant la màscara
 {
 	transposaMascara();
 	if (direccio == GIR_HORARI)
@@ -131,7 +131,7 @@ void Figura::gira(DireccioGir direccio)
 }
 
 
-void Figura::transposaMascara()
+void Figura::transposaMascara() //Transposa la màscara, canviant files per columnes
 {
 	int aux;
 	for (int i = 1; i < m_alcada; i++)
@@ -143,7 +143,7 @@ void Figura::transposaMascara()
 		}
 }
 
-void Figura::inverteixMascaraVertical()
+void Figura::inverteixMascaraVertical() //Inverteix la màscara verticalment
 {
 	int columna1, columna2;
 	if (m_amplada != 2)
@@ -168,7 +168,7 @@ void Figura::inverteixMascaraVertical()
 	}
 }
 
-void Figura::inverteixMascaraHorizontal()
+void Figura::inverteixMascaraHorizontal() //Inverteix la màscara
 {
 	int fila1, fila2;
 	if (m_alcada != 2)
