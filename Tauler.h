@@ -15,7 +15,7 @@ public:
     void dibuixaFigura(const Figura& figura);
     void getValorsTauler(ColorFigura tauler[MAX_FILA][MAX_COL]);
 private:
-    ColorFigura m_tauler[MAX_FILA + 2][MAX_COL + 4];
+    ColorFigura m_tauler[MAX_FILA + 1][MAX_COL + 2];
     int m_lliures[MAX_FILA];
 
     void baixaFila(int fila);
