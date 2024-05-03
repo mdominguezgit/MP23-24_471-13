@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Tauler::Tauler() 
+Tauler::Tauler() //Constructor per defecte de la classe, inicialitza el tauler amb els atributs inicials
 {
     for (int i = 0; i < MAX_FILA; i++)
     {
@@ -22,7 +22,7 @@ Tauler::Tauler()
         m_lliures[i] = MAX_COL;
 }
 
-void Tauler::inicialitza(ColorFigura taulerInicial[MAX_FILA][MAX_COL])
+void Tauler::inicialitza(ColorFigura taulerInicial[MAX_FILA][MAX_COL]) //Inicialitza el tauler amb els atributs especificats
 {
     for (int i = 0; i < MAX_FILA; i++)
         m_lliures[i] = MAX_COL;
@@ -35,7 +35,7 @@ void Tauler::inicialitza(ColorFigura taulerInicial[MAX_FILA][MAX_COL])
         }
 }
 
-bool Tauler::colisionaFigura(const Figura& figura)
+bool Tauler::colisionaFigura(const Figura& figura)  //Comprova si la figura col·lisiona amb altres figures ja existents
 {
     bool colisionaFigura = false;
     int mascara[MAX_ALCADA][MAX_AMPLADA];
@@ -65,7 +65,7 @@ bool Tauler::colisionaFigura(const Figura& figura)
 
 }
 
-int Tauler::colocaFigura(const Figura& figura)
+int Tauler::colocaFigura(const Figura& figura) //Col·loca la figura al tauler i retorna el nombre de files fetes completades
 {
     int mascara[MAX_ALCADA][MAX_AMPLADA];
     int numFilesFetes = 0;
@@ -96,7 +96,7 @@ int Tauler::colocaFigura(const Figura& figura)
 }
 
 
-void Tauler::dibuixaFigura(const Figura& figura)
+void Tauler::dibuixaFigura(const Figura& figura) //Dibuixa la figura al tauler
 {
     int mascara[MAX_ALCADA][MAX_AMPLADA];
 
@@ -118,7 +118,7 @@ void Tauler::dibuixaFigura(const Figura& figura)
     }
 }
 
-void Tauler::baixaFila(int fila)
+void Tauler::baixaFila(int fila) //Baixa una fila específica del tauler quan s'ha completat una línia
 {
     if (fila > 0)
     {
@@ -136,7 +136,7 @@ void Tauler::baixaFila(int fila)
     m_lliures[0] = MAX_COL;
 }
 
-void Tauler::getValorsTauler(ColorFigura tauler[MAX_FILA][MAX_COL])
+void Tauler::getValorsTauler(ColorFigura tauler[MAX_FILA][MAX_COL]) //Copia els valors del tauler a una matriu proporcionada com a paràmetre
 {
     for (int i = 0; i < MAX_FILA; i++)
     {
