@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-void Joc::inicialitza(const string& nomFitxer)
+void Joc::inicialitza(const string& nomFitxer) //Inicialitza el joc llegint la configuració del fitxer especificat
 {
 	ifstream fitxer;
 	fitxer.open(nomFitxer);
@@ -27,7 +27,7 @@ void Joc::inicialitza(const string& nomFitxer)
 	}
 }
 
-bool Joc::giraFigura(DireccioGir direccio)
+bool Joc::giraFigura(DireccioGir direccio) //Gira al figura actual en la direcció especificada i comprova si col·lisiona 
 {
 	m_figuraActual.gira(direccio);
 	bool colisiona = m_tauler.colisionaFigura(m_figuraActual);
@@ -42,7 +42,7 @@ bool Joc::giraFigura(DireccioGir direccio)
 	return !colisiona;
 }
 
-bool Joc::mouFigura(int dirX)
+bool Joc::mouFigura(int dirX) //Mou la figura horitzontalment i comprova si col·lisiona
 {
 	m_figuraActual.mou(dirX);
 	bool colisiona = m_tauler.colisionaFigura(m_figuraActual);
@@ -51,7 +51,7 @@ bool Joc::mouFigura(int dirX)
 	return !colisiona;
 }
 
-int Joc::baixaFigura()
+int Joc::baixaFigura() //Baixa la figura una posició i retorna les files completades
 {
 	int nFiles = 0;
 	m_figuraActual.baixa();
@@ -64,7 +64,7 @@ int Joc::baixaFigura()
 	return nFiles;
 }
 
-void Joc::escriuTauler(const string& nomFitxer)
+void Joc::escriuTauler(const string& nomFitxer) //Guarda l'estat actual del tauler al fitxer especificat
 {
 	ofstream fitxer;
 	fitxer.open(nomFitxer);
